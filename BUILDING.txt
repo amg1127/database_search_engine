@@ -1,0 +1,5 @@
+**** COMO COMPILAR ESTE SOFTWARE ****
+
+1. Tenha o QT SDK instalado => http://qt.nokia.com/
+2. No "Qt Command Prompt", acesse a pasta onde este software esta (cd \pasta\do\database\search\engine).
+3. Execute os comandos: "qmake -makefile" e "make".
