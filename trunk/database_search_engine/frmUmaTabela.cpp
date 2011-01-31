@@ -272,19 +272,18 @@ void button_spacer::resizeEvent (QResizeEvent* ev) {
         naoentrou = false;
         if (this->orient == Qt::Horizontal) {
             this->spc->changeSize (ev->size().width(), 1, QSizePolicy::Fixed, QSizePolicy::Fixed);
+            qDebug() << ev->size();
             ev->accept ();
         } else if (this->orient == Qt::Vertical) {
             this->spc->changeSize (1, ev->size().height(), QSizePolicy::Fixed, QSizePolicy::Fixed);
+            qDebug() << ev->size();
             ev->accept ();
         }
         #warning Isso nao da certo!
         if (ev->isAccepted ()) {
             QLayout* l = this->spc->layout ();
             if (l != NULL) {
-                QWidget* w = l->parentWidget ();
-                if (w != NULL) {
-                    w->updateGeometry ();
-                }
+                l->invalidate ();
             }
         }
         naoentrou = true;
