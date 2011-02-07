@@ -1021,7 +1021,7 @@ bool frmMainWindow::QByteArrayCanBeQString (QByteArray v) {
     l = v.size ();
     for (i = 0; i < 64 && i < l; i++) {
         QChar ch(v[i]);
-        if (ch != '\n' && ch != '\r') {
+        if (ch != '\n' && ch != '\r' && ch != '\t') {
             switch (ch.category()) {
                 case QChar::Letter_Lowercase:
                 case QChar::Letter_Modifier:
