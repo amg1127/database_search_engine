@@ -1021,35 +1021,37 @@ bool frmMainWindow::QByteArrayCanBeQString (QByteArray v) {
     l = v.size ();
     for (i = 0; i < 64 && i < l; i++) {
         QChar ch(v[i]);
-        switch (ch.category()) {
-            case QChar::Letter_Lowercase:
-            case QChar::Letter_Modifier:
-            case QChar::Letter_Other:
-            case QChar::Letter_Titlecase:
-            case QChar::Letter_Uppercase:
-            case QChar::Mark_Enclosing:
-            case QChar::Mark_NonSpacing:
-            case QChar::Mark_SpacingCombining:
-            case QChar::Number_DecimalDigit:
-            case QChar::Number_Letter:
-            case QChar::Number_Other:
-            case QChar::Punctuation_Close:
-            case QChar::Punctuation_Connector:
-            case QChar::Punctuation_Dash:
-            case QChar::Punctuation_FinalQuote:
-            case QChar::Punctuation_InitialQuote:
-            case QChar::Punctuation_Open:
-            case QChar::Punctuation_Other:
-            case QChar::Separator_Line:
-            case QChar::Separator_Paragraph:
-            case QChar::Separator_Space:
-            case QChar::Symbol_Currency:
-            case QChar::Symbol_Math:
-            case QChar::Symbol_Modifier:
-            case QChar::Symbol_Other:
-                break;
-            default:
-                return (false);
+        if (ch != '\n' && ch != '\r') {
+            switch (ch.category()) {
+                case QChar::Letter_Lowercase:
+                case QChar::Letter_Modifier:
+                case QChar::Letter_Other:
+                case QChar::Letter_Titlecase:
+                case QChar::Letter_Uppercase:
+                case QChar::Mark_Enclosing:
+                case QChar::Mark_NonSpacing:
+                case QChar::Mark_SpacingCombining:
+                case QChar::Number_DecimalDigit:
+                case QChar::Number_Letter:
+                case QChar::Number_Other:
+                case QChar::Punctuation_Close:
+                case QChar::Punctuation_Connector:
+                case QChar::Punctuation_Dash:
+                case QChar::Punctuation_FinalQuote:
+                case QChar::Punctuation_InitialQuote:
+                case QChar::Punctuation_Open:
+                case QChar::Punctuation_Other:
+                case QChar::Separator_Line:
+                case QChar::Separator_Paragraph:
+                case QChar::Separator_Space:
+                case QChar::Symbol_Currency:
+                case QChar::Symbol_Math:
+                case QChar::Symbol_Modifier:
+                case QChar::Symbol_Other:
+                    break;
+                default:
+                    return (false);
+            }
         }
     }
     return (true);
