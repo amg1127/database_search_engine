@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setOrganizationName("DETRAN-RS");
+    QCoreApplication::setOrganizationName("database-search-engine");
     QCoreApplication::setApplicationName("database-search-engine");
     QApplication a(argc, argv);
     frmMainWindow w;
